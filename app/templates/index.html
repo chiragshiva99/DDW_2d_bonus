@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{title}}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="p-3 mb-2 bg-secondary text-white">
+        <h3 style="text-align: center;" class="font-weight-normal"> Welcome to {{title}} </h3>
+    </div>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mb-3" style="text-align: center">
+                <h4>In this project you will generate some random number and sort them.
+                </h4>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <button type="button" class="btn btn-outline-info btn-lg btn-block">
+                <a href="ex1" style="color: inherit;"> Exercise 1- Generate Random Number and Sort </a>
+            </button>
+        </div>
+        <div class="row pt-3">
+            <button type="button" class="btn btn-outline-info btn-lg btn-block">
+                <a href="ex2" style="color: inherit;"> Exercise 2- Entering Random Number and Sort </a>
+                <!--use inherit to inherit the color of font from parent, istead of default href font-->
+            </button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
