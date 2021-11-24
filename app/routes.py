@@ -3,16 +3,25 @@ from app import application
 
 
 @application.route('/')
-@application.route('/index')
-def index():
-    return render_template('index.html', title='Mini Project 1- Home')
+@application.route('/home')
+def home():
+    return render_template('home.html', title='D2W-Bonus-Home')
 
 
-@application.route('/ex1')
-def exercise1():
-    return render_template('task1.html', title='Mini Project 1- Exercise 1')
+@application.route('/about')
+def about():
+    return render_template('about.html', title='D2W-Bonus-About')
 
 
-@application.route('/ex2')
-def exercise2():
-    return render_template('task2.html', title='Mini Project 1- Exercise 2')
+@application.route('/task1')
+def task1():
+    return render_template('task1.html', title='D2W-Bonus-Task1')
+
+
+@application.route('/task2')
+def task2():
+    return render_template('task2.html', title='D2W-Bonus-Task2')
+
+
+
+
