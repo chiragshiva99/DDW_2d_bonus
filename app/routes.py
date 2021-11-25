@@ -27,11 +27,13 @@ def task1():
         hdi = form.hdi.data
         monthly_case = form.monthly_case.data
 
-        
-        validate_pop_den(pop_den)
-        validate_hdi(hdi)
-        validate_monthly_case(monthly_case)
+        flag1 = validate_pop_den(pop_den)
+        flag2 = validate_hdi(hdi)
+        flag3 = validate_monthly_case(monthly_case)
 
+        if not flag1 or not flag2 or not flag3:
+            return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
+            
         form.death_count = MLR.beta0 + MLR.beta1 * pop_den + MLR.beta2 * hdi + MLR.beta3 * monthly_case
         return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
     return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
