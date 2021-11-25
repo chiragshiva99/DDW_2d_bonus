@@ -249,8 +249,50 @@
             again.</div>
           <input type="hidden" value="" name="recaptchaResponse">
         </form>
+        <div class="u-form u-form-1">
+          <form action="" method="post" novalidate>
+            <p>Input the following parameters</p>
+            {{ form.hidden_tag() }}
+            <div>
+              {{ form.mental_perc.label }}
+              {{ form.mental_perc(size=10) }}
+              {{ form.ff_per_hund.label }}
+              {{ form.ff_per_hund(size=10) }}
+              {{ form.hypert.label }}
+              {{ form.hypert(size=10) }}
+              {{ form.submit() }}
+              {% block content %}
+              <div class="container">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-info" role="alert" style="color:red">
+                  <h6>*{{ message }}</h6>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                {% block app_content %}{% endblock %}
+              </div>
+              {% endblock %}
+            </div>
+          </form>
+        </div>
       </div>
-      <h2 class="u-text u-text-3">HIGH RISK OR LOW RISK</h2>
+      {% if form.is_high_risk %}
+      {% if form.is_high_risk == 'High risk' %}
+      <div class="alert alert-info" role="alert" style="color:red">
+        <h6> High risk </h6>
+      </div>
+      {% elif form.is_high_risk == 'Low risk' %}
+      <div class="alert alert-info" role="alert" style="color:rgb(68, 0, 255)">
+        <h6> Low risk </h6>
+      </div>
+      {% endif %}
+      {% else %}
+      <h6>Input data</h6>
+      {% endif %}
     </div>
   </section>
 
