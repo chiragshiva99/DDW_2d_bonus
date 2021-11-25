@@ -14,9 +14,9 @@ class MLRForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class LogRegForm(FlaskForm):
-    mental_perc = FloatField('Mental Illness Percentage', validators=[DataRequired()])
-    ff_per_hund = FloatField('# Fast food restaurants per 100 000 people', validators=[DataRequired()])
-    hypert = FloatField('Hypertension Percentage', validators=[DataRequired()])
+    mental_perc = FloatField('Mental Illness %', validators=[DataRequired()])
+    ff_per_hund = FloatField('No. of Fast food restaurants per 100 000 people', validators=[DataRequired()])
+    hypert = FloatField('Hypertension %', validators=[DataRequired()])
     is_high_risk = HiddenField('High Risk')
     submit = SubmitField('Submit')
 
