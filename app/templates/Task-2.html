@@ -107,7 +107,7 @@
             <div class="u-container-style u-grey-5 u-layout-cell u-left-cell u-size-30 u-size-xs-60 u-layout-cell-1"
               src="">
               <div class="u-container-layout u-container-layout-1">
-                <h1 style="text-align:center"> Task 2&nbsp;</h1>
+                <h1 style="text-align:center"> <u>Task 2</u>&nbsp;</h1>
                 <p class="u-align-center u-text u-text-2" style="font-size: medium;"><b>Using Logistic Regression, we
                     have chosen
                     to model whether
@@ -210,6 +210,9 @@
           </div>
         </div>
       </div>
+      <p style="text-align:center">Having analysed all 6 models, we decided to proceed on with Mental Illness,
+        Hypertension and Number of Fast Food Restaurants per 100 000 people.
+      </p>
     </div>
   </section>
   <section class="u-clearfix u-grey-5 u-section-4" id="sec-c4c4">
@@ -219,37 +222,13 @@
   </section>
   <section class="u-align-center u-clearfix u-grey-5 u-section-5" id="sec-4077">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <h4 style="text-align:center">Data for Model
+      <h4 style="text-align:center"><u>Data for Model</u>
       </h4>
-      <h6 class="u-text u-text-2">Input Dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h6>
+      <h6 class="u-text u-text-2">Input Data for ​Mental Illness Percentage (1 - 100), Number of Fast food restaurants
+        per 100 000 people
+        (1 - 100) and Hypertension Percentage (1 - 100)</h6>
       <div class="u-form u-form-1">
-        <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form"
-          style="padding: 15px" source="custom">
-          <div class="u-form-group u-form-group-1">
-            <label for="text-6790" class="u-form-control-hidden u-label"></label>
-            <input type="text" placeholder="Population Density" id="text-6790" name="text"
-              class="u-border-1 u-border-grey-30 u-input u-input-rectangle">
-          </div>
-          <div class="u-form-group u-form-group-2">
-            <label for="text-226f" class="u-form-control-hidden u-label"></label>
-            <input type="text" placeholder="Human Development Index" id="text-226f" name="text-1"
-              class="u-border-1 u-border-grey-30 u-input u-input-rectangle">
-          </div>
-          <div class="u-form-group u-form-group-3">
-            <label for="text-bbf5" class="u-form-control-hidden u-label"></label>
-            <input type="text" placeholder="Monthly Cases" id="text-bbf5" name="text-2"
-              class="u-border-1 u-border-grey-30 u-input u-input-rectangle">
-          </div>
-          <div class="u-form-group u-form-submit u-form-group-4">
-            <a href="#" class="u-btn u-btn-submit u-button-style">Submit</a>
-            <input type="submit" value="submit" class="u-form-control-hidden">
-          </div>
-          <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
-          <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try
-            again.</div>
-          <input type="hidden" value="" name="recaptchaResponse">
-        </form>
-        <div class="u-form u-form-1">
+        <div class="u-form u-form-1" I>
           <form action="" method="post" novalidate>
             <p>Input the following parameters</p>
             {{ form.hidden_tag() }}
@@ -283,16 +262,18 @@
       {% if form.is_high_risk %}
       {% if form.is_high_risk == 'High risk' %}
       <div class="alert alert-info" role="alert" style="color:red">
-        <h6> High risk </h6>
+        <h1> High risk </h1>
       </div>
       {% elif form.is_high_risk == 'Low risk' %}
       <div class="alert alert-info" role="alert" style="color:rgb(68, 0, 255)">
-        <h6> Low risk </h6>
+        <h1> Low risk </h1>
       </div>
       {% endif %}
       {% else %}
       <h6>Input data</h6>
       {% endif %}
+      <h1 style="text-align:center">
+      </h1>
     </div>
   </section>
 
