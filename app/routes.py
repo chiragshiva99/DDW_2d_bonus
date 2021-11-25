@@ -1,8 +1,8 @@
 from flask import render_template
 from app import application
-from app.forms import MLRForm
-from app.models import MLRModel
-from app.utils.helpers import validate_hdi, validate_monthly_case, validate_pop_den
+from app.forms import MLRForm, LogRegForm
+from app.models import MLRModel, LogRegModel
+from app.utils.helpers import validate_hdi, validate_monthly_case, validate_pop_den, validate_ff_per_hund, validate_hypert,validate_mental_perc, normalize_z
 
 
 @application.route('/')
@@ -21,7 +21,7 @@ def about():
 @application.route('/task1', methods=['GET', 'POST'])
 def task1():
     form = MLRForm()
-    MLR = MLRModel(num_task=1)
+    MLR = MLRModel()
     if form.validate_on_submit():
         pop_den = form.pop_den.data
         hdi = form.hdi.data
@@ -41,7 +41,29 @@ def task1():
 
 @application.route('/task2', methods=['GET', 'POST'])
 def task2():
-    return render_template('Task-2.html', title='D2W-Bonus-Task2')
+    form = LogRegForm()
+    LRM =LogRegModel()
+    if form.validate_on_submit():
+        mental_perc = form.mental_perc.data
+        ff_per_hund= form.ff_per_hund.data
+        hypert = form.hypert.data
+
+        flag1 = validate_mental_perc(mental_perc)
+        flag2 = validate_ff_per_hund(ff_per_hund)
+        flag3 = validate_hypert(hypert)
+
+        mental_perc = normalize_z(mental_perc, feature_type='mental') 
+        ff_per_hund = normalize_z(ff_per_hund, feature_type='ff')
+        hypert = normalize_z(hypert, feature_type='hyp')
+
+        if not flag1 or not flag2 or not flag3:
+            return render_template('Task-2.html', title='D2W-Bonus-Task2', form=form)
+
+        val = LRM.beta0 + LRM.beta1 * mental_perc + LRM.beta2 * ff_per_hund + LRM.beta3 * hypert
+        form.is_high_risk = 'High risk' if val >= 60 else 'Low risk'
+        
+        return render_template('Task-2.html', title='D2W-Bonus-Task2', form=form)
+    return render_template('Task-2.html', title='D2W-Bonus-Task2', form=form)
 
 
 
