@@ -33,7 +33,7 @@ def task1():
 
         if not flag1 or not flag2 or not flag3:
             return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
-            
+
         form.death_count = MLR.beta0 + MLR.beta1 * pop_den + MLR.beta2 * hdi + MLR.beta3 * monthly_case
         return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
     return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
