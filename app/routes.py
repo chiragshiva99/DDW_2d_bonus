@@ -2,6 +2,7 @@ from flask import render_template
 from app import application
 from app.forms import MLRForm
 from app.models import MLRModel
+from app.utils.helpers import validate_hdi, validate_monthly_case, validate_pop_den
 
 
 @application.route('/')
@@ -15,6 +16,8 @@ def about():
     return render_template('About.html', title='D2W-Bonus-About')
 
 
+
+#filter data from the various boundaries 
 @application.route('/task1', methods=['GET', 'POST'])
 def task1():
     form = MLRForm()
@@ -22,9 +25,14 @@ def task1():
     if form.validate_on_submit():
         pop_den = form.pop_den.data
         hdi = form.hdi.data
-        med_age = form.med_age.data
+        monthly_case = form.monthly_case.data
 
-        form.death_count = MLR.beta0 + MLR.beta1 * pop_den + MLR.beta2 * hdi + MLR.beta3 * med_age
+        
+        validate_pop_den(pop_den)
+        validate_hdi(hdi)
+        validate_monthly_case(monthly_case)
+
+        form.death_count = MLR.beta0 + MLR.beta1 * pop_den + MLR.beta2 * hdi + MLR.beta3 * monthly_case
         return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
     return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
 
