@@ -1,5 +1,5 @@
 # DDW 2D Bonus Submission 
-SC05 Group 6- Chirag Shivakumar, Ethan Pang, Lix Xi, Nicole Shuan, Nguyen Bao Long Tran
+SC05 Group 6- Chirag Shivakumar, Ethan Pang, Lin Xi, Nicole Shuan, Nguyen Bao Long Tran
 
 ## Setup
 
@@ -19,10 +19,10 @@ $ git clone https://github.com/chiragshiva99/DDW_2d_bonus.git
 
 ### Go to ddw-2d-bonus Folder
 
-Once you have downloaded the repository, you can go to the repository and to the folder called `mp_calc` for this mini project.
+Once you have downloaded the repository, you can go to the repository and to the folder called `DDW_2d_bonus` for this mini project.
 
 ```shell
-$ cd DDW_Extra
+$ cd DDW_2d_bonus
 $ ls
 ```
 
@@ -43,11 +43,11 @@ In the following steps, the Windows prompt will be represented by:
 ```shell
 >
 ```
-Go to the root folder `mp_calc`.
+Go to the root folder `DDW_2d_bonus`.
 ```shell
-> cd %USERPROFILE%\Downloads\d2w_mini_projects\mp_calc
+> cd %USERPROFILE%\Downloads\DDW_2d_bonus
 ```
-From the root folder, i.e. `mp_calc`, create virtual environment called `virtenv`.
+From the root folder, i.e. `DDW_2d_bonus`, create virtual environment called `virtenv`.
 
 ```shell
 > python -m venv virtenv
@@ -76,12 +76,12 @@ In the following steps, the MacOS/Linux prompt will be represented by:
 $
 ```
 
-Go to the root folder `mp_calc`. 
+Go to the root folder `DDW_2d_bonus`. 
 ```shell
-$ cd ~/Downloads/d2w_mini_projects/mp_calc
+$ cd ~/Downloads/DDW_2d_bonus
 ```
 
-From the root folder, i.e. `mp_calc`, create virtual environment called `virtenv`.
+From the root folder, i.e. `DDW_2d_bonus`, create virtual environment called `virtenv`.
 
 ```shell
 $ python -m venv virtenv
@@ -106,7 +106,7 @@ $ deactivate
 
 ### Install Python Packages
 
-Install the necessary packages for this mini project. From the root folder, i.e. `mp_calc`, type the following:
+Install the necessary packages for this mini project. From the root folder, i.e. `DDW_2d_bonus`, type the following:
 
 For Windows:
 ```shell
@@ -127,14 +127,14 @@ Now you are ready to run your web app in your local computer.
 You should see `application.py` in this root folder. 
 
 #### Vocareum
-If you use Vocareum terminal to run your Flask application, you can do so by running the `runflaskvoc.sh` script. Before running this script, make sure the `voc=True` is set true in the following line inside `mp_sort/app/__init__.py`.
+If you use Vocareum terminal to run your Flask application, you can do so by running the `runflaskvoc.sh` script. Before running this script, make sure the `voc=True` is set true in the following line inside `DDW_2d_bonus/app/__init__.py`.
 
 ```python
 # set voc=False if you run on local computer
 application.wsgi_app = PrefixMiddleware(application.wsgi_app, voc=True)
 ```
 
-Now, make sure you are inside the `mp_sort` folder  by using the `pwd` command. 
+Now, make sure you are inside the `DDW_2d_bonus` folder  by using the `pwd` command. 
 
 ```shell
 > pwd
@@ -165,7 +165,7 @@ To stop the web app type `CTRL+C`.
 
 #### Local Computer
 
-If you are using your own computer, make sure to change the flag `voc=False` in the following line inside `mp_sort/app/__init__.py`.
+If you are using your own computer, make sure to change the flag `voc=False` in the following line inside `DDW_2d_bonus/app/__init__.py`.
 
 ```python
 # set voc=False if you run on local computer
