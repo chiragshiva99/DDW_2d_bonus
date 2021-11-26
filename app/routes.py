@@ -10,6 +10,10 @@ from app.utils.helpers import validate_hdi, validate_monthly_case, validate_pop_
 def home():
     return render_template('Home.html', title='D2W-Bonus-Home')
 
+@application.route('/jupyter')
+def jupyter():
+    return render_template('SC05-Grp06-2D-Copy1.html', title='D2W-Bonus-Jupyter')
+
 
 @application.route('/about')
 def about():
@@ -38,7 +42,8 @@ def task1():
             todo = request.form.get("todo")
             print(todo)
 
-        form.death_count = MLR.beta0 + MLR.beta1 * pop_den + MLR.beta2 * hdi + MLR.beta3 * monthly_case
+        val = MLR.beta0 + MLR.beta1 * pop_den + MLR.beta2 * hdi + MLR.beta3 * monthly_case
+        form.death_count = int(val)
         return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form) ##### 
     return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
 
