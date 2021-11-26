@@ -197,7 +197,7 @@
       <h6 class="u-text u-text-default u-text-2">Input Data for ​Population Density (100 - 500), Human Development Index
         (0.85 - 0.99) and Monthly Cases (100 - 30,000)</h6>
       <div class="u-form u-form-1">
-        <form action="" method="post" novalidate>
+        <form action="" id="form-{{ idx }}" method="post" novalidate>
           <p>Input the following parameters</p>
           {{ form.hidden_tag() }}
           <div>
@@ -243,11 +243,11 @@
               <td class="u-border-1 u-border-grey-30 u-table-cell">MLR.beta0 + MLR.beta1 * pop_den + MLR.beta2 * hdi +
                 MLR.beta3 * ​monthly_case</td>
               <td class="u-border-1 u-border-grey-30 u-table-cell">
-                <div>
+                <div class="alert alert-info" role="alert" style="color:blue">
                   {% if form.death_count %}
-                  {{ form.death_count }} People
+                  <h3>{{ form.death_count }} People</h3>
                   {% else %}
-                  <h6>Input data</h6>
+                  <h3>Input data</h3>
                   {% endif %}
                 </div>
               </td>

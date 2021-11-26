@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, flash, redirect, url_for, request
 from app import application
 from app.forms import MLRForm, LogRegForm
 from app.models import MLRModel, LogRegModel
@@ -9,6 +9,10 @@ from app.utils.helpers import validate_hdi, validate_monthly_case, validate_pop_
 @application.route('/home')
 def home():
     return render_template('Home.html', title='D2W-Bonus-Home')
+
+@application.route('/jupyter')
+def jupyter():
+    return render_template('SC05-Grp06-2D-Copy1.html', title='D2W-Bonus-Jupyter')
 
 
 @application.route('/about')
@@ -30,10 +34,15 @@ def task1():
         flag3 = validate_monthly_case(monthly_case)
 
         if not flag1 or not flag2 or not flag3:
-            return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
+            return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form) ########
+        
+        if request.method == "POST":
+            todo = request.form.get("todo")
+            print(todo)
 
-        form.death_count = MLR.beta0 + MLR.beta1 * pop_den + MLR.beta2 * hdi + MLR.beta3 * monthly_case
-        return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
+        val = MLR.beta0 + MLR.beta1 * pop_den + MLR.beta2 * hdi + MLR.beta3 * monthly_case
+        form.death_count = int(val)
+        return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form) ##### 
     return render_template('Task-1.html', title='D2W-Bonus-Task1', form=form)
 
 
