@@ -16,8 +16,6 @@ def about():
     return render_template('About.html', title='D2W-Bonus-About')
 
 
-
-#filter data from the various boundaries 
 @application.route('/task1', methods=['GET', 'POST'])
 def task1():
     form = MLRForm()
@@ -60,7 +58,7 @@ def task2():
             return render_template('Task-2.html', title='D2W-Bonus-Task2', form=form)
 
         val = LRM.beta0 + LRM.beta1 * mental_perc + LRM.beta2 * ff_per_hund + LRM.beta3 * hypert
-        form.is_high_risk = 'High risk' if val >= 60 else 'Low risk'
+        form.is_high_risk = 'High risk' if val >= LRM.target_thres else 'Low risk'
         
         return render_template('Task-2.html', title='D2W-Bonus-Task2', form=form)
     return render_template('Task-2.html', title='D2W-Bonus-Task2', form=form)
